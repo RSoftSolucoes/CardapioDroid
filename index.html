@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title> Escolha seu lugar
+	</title>
+</head>
+<body>
+
+
+	<div data-role="page">
+<!-- cabeçalho -->
+<div data-role="header"> 
+ 
+</div>
+		
+<!-- conteúdo -->
+<div data-role="content" class="ui-content">
+		<CENTER>
+	 
+
+	<div class="teclado">   
+	<div data-role="controlgroup" data-type="horizontal">
+    <input type="text" id="numeroDaMesa" class="numero" data-wrapper-class="controlgroup-textinput ui-btn">
+    <input type="button" data-icon="back ui-btn-icon-notext desfazer" data-enabled="" value=" ."/></div>
+	
+
+	<h4 class="titulo">QUAL O Nº DA SUA MESA?</h4>
+ 	<div data-role="controlgroup" data-type="horizontal">
+    	<a href="#" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-inline, tecla">1</a>
+    	<a href="#" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-inline, tecla">2</a>
+    	<a href="#" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-inline tecla">3</a>
+	</div>
+	<div data-role="controlgroup" data-type="horizontal">
+    	<a href="#" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-inline tecla">4</a>
+    	<a href="#" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-inline tecla">5</a>
+    	<a href="#" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-inline tecla">6</a>
+	</div>
+	<div data-role="controlgroup" data-type="horizontal">
+    	<a href="#" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-inline tecla" data-rel="popup" data-position-to="window" data-transition="pop">7</a>
+    	<a href="#" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-inline tecla" data-rel="popup" data-position-to="window" data-transition="pop">8</a>
+    	<a href="#" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-inline tecla" >9</a>
+	</div>
+	<div data-role="controlgroup" data-type="horizontal">
+		<a href="#" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-btn-inline tecla zero">0</a>	 
+ 
+		<button class="ui-shadow ui-btn ui-corner-all ui-icon-shop ui-btn-icon-right btConfirma">Ver Cardápio</button>
+	</div>
+
+</div>
+
+
+<!-- POPUP -->
+<div data-role="popup" id="popupDialog" data-overlay-theme="b" data-theme="a" data-dismissible="false" style="max-width:400px;">
+    <div data-role="header" data-theme="a">
+    <h1>CONFIRMAÇÃO</h1>
+    </div>
+    <div role="main" class="ui-content">
+    	 <p>VOCÊ CONFIRMA O Nº DE SUA MESA: </p>
+
+      <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn" data-rel="back" data-transition="flow">SIM</a>
+      <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn" data-rel="back">NÃO</a>
+    </div>
+</div>
+ 
+
+
+
+ 
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.3.min.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.3.min.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.3.min.css">
+<link rel="stylesheet" type="text/css" href="css/teclado.css">
+
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/jquery.mobile-1.4.3.min.js"></script>
+
+<script type="text/javascript">
+
+	var botaoVerCardapio = function(){
+		var numeroDaMesa = $("#numeroDaMesa").val();
+ 
+	$.ajax({
+		
+        type: "GET",
+        url: "http://127.0.0.1:8080/CardapioManager/cardapio",
+    	contentType: "application/json; charset=utf-8",
+		dataType: 'json',
+		ProcessData: true,
+	    success: function(json){
+	                alert(json);
+	        }
+    	});
+}
+	var inicializar=function (){
+		
+ 		$(".tecla").on("click",function(event){
+ 			nMesa = $(this).text();
+ 			$("#numeroDaMesa").val($("#numeroDaMesa").val()+nMesa);
+ 		 console.log(nMesa);
+	 	})
+
+	 	$(".desfazer").on("click",function(){
+	 		$("#numeroDaMesa").val("");
+	 	})
+
+	 	$(".btConfirma").on("click",botaoVerCardapio);
+
+	};
+
+
+
+	$(inicializar);
+</script>
+</body>
+</html>

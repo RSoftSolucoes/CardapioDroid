@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title> Escolha seu lugar
+	</title>
+</head>
+<body>
+
+
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.3.min.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme-1.4.3.min.css">
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.3.min.css">
+<link rel="stylesheet" type="text/css" href="css/teclado.css">
+
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/jquery.mobile-1.4.3.min.js"></script>
+
+
+<script type="text/javascript">
+var pegarAtributosUrl = function(){
+		var hash={};
+		var url = window.location.search.replace("?","");
+		var item = url.split("&");
+		for(var i=0; i < item.length; i++){
+			var array = item[i].split("=");
+			var chave = array[0];
+			var valor = array[1];
+			hash[chave] = valor;
+		}
+		return hash;
+};
+
+var inicializar=function(){
+	
+}
+
+	$(inicializar);
+</script>
+</body>
+</html>

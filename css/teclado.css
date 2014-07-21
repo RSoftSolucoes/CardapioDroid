@@ -1,0 +1,57 @@
+body{background: url("../imagens/bg_teclado_1.jpg");
+
+    }
+.ui-body {
+    background: url("../imagens/bg_teclado_1.jpg");
+ background-size: 140% 100%;
+}
+.ui-page {
+    background: url("../imagens/bg_teclado_1.jpg");
+ background-size: 140% 100%;
+}
+ 
+
+.teclado{
+	display: block; position: relative; margin: auto;  padding: 10px; width: 250px;
+	background: white;
+	border: 1px solid #fffff8; border-radius: 8px;
+	padding:6px !important;
+	opacity: 0.90;
+    filter: alpha(opacity=90);
+    box-shadow: 0px 0px 5px #000000 ;
+	}
+ 
+ .tecla{width: 50px; height: 50px; padding-top: 26px !important; padding-bottom:0px !important; display: block; }
+ .tecla.zero {width: 80px !important; display: inline-block;};
+
+.titulo{text-align: center !important; text-transform: uppercase; display: block; margin:auto;}
+
+.numeroMesa{
+	 font-weight: bold;
+	 font-size: 18pt;
+	 color:blue;
+	 max-width: 240px;
+}
+
+.numeroMesa .numero{
+	width: 200px; display: inline-block;
+}
+ 
+.numeroMesa .icone{
+	float:right; display: inline-block;
+	top: -8px;
+	border:0px;
+	background: transparent;
+}
+.numeroMesa .icone:hover{
+ 	background: transparent;
+}
+
+.btConfirma{width: 96px !important; height: 31px;display:inline-block; padding-top: 24px !important; padding-bottom:21px !important; font-size: 8pt; background-color: yellow !important}
+
+.controlgroup-textinput{
+    padding-top:.22em;
+    padding-bottom:.22em;
+    width: 90px; font-weight: bold !important;
+    text-shadow: 2px 2px 2px #fffff9;
+}
